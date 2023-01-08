@@ -1,89 +1,60 @@
 {
   "users": [
     {
-      "id": 9,
-      "name": "Glenna Reichert Glenna Reichert",
-      "username": "Delphine",
-      "email": "Chaim_McDermott@dana.io",
-      "address": {
-        "street": "Dayna Park",
-        "suite": "Suite 449",
-        "city": "Bartholomebury",
-        "zipcode": "76495-3109",
-        "geo": {
-          "lat": "24.6463",
-          "lng": "-168.8889"
-        }
-      },
-      "phone": "(775)976-6794 x41206",
-      "website": "conrad.com.com.comm",
-      "company": {
-        "name": "Yost and Sons",
-        "catchPhrase": "Switchable contextually-based project",
-        "bs": "aggregate real-time technologies"
-      }
+      "name": "Anik",
+      "username": "Anik Mishra",
+      "email": "anikmishra@gmail.com",
+      "phone": "8276453629",
+      "website": "codlee.com",
+      "id": 1
     },
     {
-      "name": [
-        "surya edit"
-      ],
-      "username": [
-        "suryamishraedit"
-      ],
-      "email": [
-        "elener@morecorp.co.za"
-      ],
-      "phone": [
-        "7355551203"
-      ],
-      "website": [
-        "www.theworldofculture.com"
-      ],
-      "id": 11
+      "name": "Jenny",
+      "username": "Jenny Joy",
+      "email": "jenny@gmail.com",
+      "phone": "8976547893",
+      "website": "jennyjulien.com",
+      "id": 2
     },
     {
-      "name": [
-        "surya"
-      ],
-      "username": [
-        "suryamishra"
-      ],
-      "email": [
-        "elener@morecorp.co.za"
-      ],
-      "phone": [
-        "7355551203"
-      ],
-      "website": [
-        "www.theworldofculture.com"
-      ],
-      "id": 12
+      "name": "Geli",
+      "username": "Geli",
+      "email": "geli@gmail.com",
+      "phone": "9876543567",
+      "website": "gelimeet.com",
+      "id": 3
     },
     {
-      "name": [
-        "surya1"
-      ],
-      "username": [
-        "suryamishra1"
-      ],
-      "email": [
-        "elener@morecorp.co.za1"
-      ],
-      "phone": [
-        "7355551203"
-      ],
-      "website": [
-        "www.theworldofculture.com"
-      ],
-      "id": 13
+      "name": "Jhon",
+      "username": "Jhon June",
+      "email": "jhon@gmail.com",
+      "phone": "9876578493",
+      "website": "jhon_patchu.com",
+      "id": 4
     },
     {
-      "name": "surya mishra",
-      "username": "suryamishra",
-      "email": "surya@webworldexpertsindia.com",
-      "phone": "7355551203",
-      "website": "www.theworldofculture.com",
-      "id": 14
+      "name": "Juliet",
+      "username": "Juliet",
+      "email": "julient@gmail.com",
+      "phone": "9087654890",
+      "website": "Julietdoorer.com",
+      "id": 5
+    },
+    {
+      "name": "Yashi",
+      "username": "Yashi Sirvastava",
+      "email": "yashi@gmail.com",
+      "phone": "9087654890",
+      "website": "yashiloveanik.com",
+      "id": 6
+    },
+    {
+      "name": "fsdfsafaffdsaf",
+      "username": "afdfas",
+      "email": "adfdfd@gmail.com",
+      "phone": "dsfsafsadfsdfds",
+      "website": "fdsfsdfdfsdf",
+      "id": 7
     }
   ]
 }

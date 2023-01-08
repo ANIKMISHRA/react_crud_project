@@ -6,6 +6,9 @@ import { useNavigate, useParams } from "react-router-dom";
 // component
 import Form from "../layout/Form";
 
+// services 
+import { getSpecificUser, updateSpecificUserData } from "../services/Services";
+
 /**
  * Method to handle to edit user data.
  * @returns node
@@ -26,29 +29,30 @@ const EditUser = () => {
     });
 
     /**
-     * Method to handle the on submit.
+     * Method to handle the on submit.(updation)
      * @param {object} event 
      */
     const onSubmit = async event => {
         event.preventDefault();
-
-        await axios.put(`http://localhost:3003/users/${id}`, user);
-        navigate("/")
+        try {
+            await updateSpecificUserData(user, id);
+            navigate("/");
+        } catch (error) {
+            console.log(error);
+        }
     }
 
-    /**
-     * Method to fetch users.
-     */
-    const fetchUsers = async () => {
-        const result = await axios.get(`http://localhost:3003/users/${id}`);
-        setUser(result.data)
-    }
 
     /**
      * Component did mount
      */
-    useEffect(() => {
-        fetchUsers();
+    useEffect(async () => {
+        try {
+            const result = await getSpecificUser(id);
+            setUser(result?.data);
+        } catch (error) {
+            console.log(error);
+        }
     }, [])
 
     return (

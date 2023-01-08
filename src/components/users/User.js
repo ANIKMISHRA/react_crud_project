@@ -1,7 +1,9 @@
 // npm packages
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams, Link } from "react-router-dom";
+
+// service
+import { getSpecificUser } from "../services/Services";
 
 /**
  * Method to handle to view user details
@@ -23,17 +25,10 @@ const ViewUser = () => {
     /**
      * Component did mount
      */
-    useEffect(() => {
-        fetchUsers();
+    useEffect(async() => {
+        const result = await getSpecificUser(id);
+        setUser(result?.data)
     }, [])
-
-    /**
-     * Method to fetch users 
-     */
-    const fetchUsers = async () => {
-        const result = await axios.get(`http://localhost:3003/users/${id}`);
-        setUser(result.data)
-    }
 
     return (
         <div className="container py-4">

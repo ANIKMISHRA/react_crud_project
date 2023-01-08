@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 // component
 import Form from "../layout/Form";
 
+// service
+import { addUser } from "../services/Services";
+
 /**
  * Method to handle add user
  * @returns node
@@ -31,9 +34,13 @@ const AddUser = () => {
      */
     const onSubmit = async event => {
         event.preventDefault();
+        try {
+            setFormErrors(validate(user));
+            setIsSubmit(true);
+        } catch (error) {
+            console.log(error);
+        }
 
-        setFormErrors(validate(user));
-        setIsSubmit(true);
     }
 
     /**
@@ -41,10 +48,9 @@ const AddUser = () => {
      */
     useEffect(async (e) => {
         if (Object.keys(formErrors).length === 0 && isSubmit) {
-            await axios.post("http://localhost:3003/users", user);
-            navigate("/")
+            await addUser(user);
+            navigate("/");
         }
-
     }, [formErrors])
 
     // form validation

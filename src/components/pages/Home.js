@@ -1,43 +1,51 @@
 // npm packages
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
 // react icons
 import { GrView } from 'react-icons/gr';
 import { TbEdit } from 'react-icons/tb';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
+// service
+import { deleteSpecificUser, getUsers } from '../services/Services';
+
 /**
  * Method to handle to show all users data
  * @returns node
  */
 const Home = () => {
+    // const
+    const navigate = useNavigate();
+
     // state
     const [users, setUsers] = useState([]);
 
     /**
      * Component did mount
      */
-    useEffect(() => {
-        fetchUsers();
-    }, [])
-
-    /**
-     * Method to fetch users
-     */
-    const fetchUsers = async () => {
-        const results = await axios.get("http://localhost:3003/users");
-        setUsers(results.data.reverse())
-    }
+    useEffect(async() => {
+        try {
+            const results = await getUsers();
+            setUsers(results?.data.reverse())   
+        } catch (error) {
+            console.log(error);
+        }
+    }, []);
 
     /**
      * Method to delete user
      * @param {string} id 
      */
     const deleteUser = async id => {
-        await axios.delete(`http://localhost:3003/users/${id}`);
-        fetchUsers();
+        try {
+            await deleteSpecificUser(id);
+            const results = await getUsers();
+            setUsers(results?.data.reverse()) 
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
@@ -65,7 +73,7 @@ const Home = () => {
                                     <td>
                                         <Link to={`/users/view/${user?.id}`} className="btn btn-light" ><GrView /></Link>
                                         <Link to={`/users/edit/${user?.id}`} className="btn btn-light text-primary" ><TbEdit /></Link>
-                                        <Link to="/#" onClick={() => deleteUser(user.id)} className="btn btn-light text-danger"><RiDeleteBin6Line /></Link>
+                                        <button onClick={() => deleteUser(user?.id)} className="btn btn-light text-danger"><RiDeleteBin6Line /></button>
                                     </td>
                                 </tr>
                             ))
@@ -76,4 +84,4 @@ const Home = () => {
         </div>
     )
 }
-export default Home
+export default Home;
