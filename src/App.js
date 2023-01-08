@@ -11,10 +11,8 @@ import ViewUser from './components/users/User';
 // styles
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 
-function App() {
+const App = () => {
 
-  const location = useLocation();
-  console.log(location);
   return (
     <Router>
       <div className="App">
