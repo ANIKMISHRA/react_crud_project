@@ -8,6 +8,8 @@ import Form from "../layout/Form";
 
 // services 
 import { getSpecificUser, updateSpecificUserData } from "../services/Services";
+import { PopupMessage } from "../services/PopupMessages";
+import { UPDATED_MESSAGE, ERROR_MESSAGE } from "../services/Messages";
 
 /**
  * Method to handle to edit user data.
@@ -36,8 +38,10 @@ const EditUser = () => {
         event.preventDefault();
         try {
             await updateSpecificUserData(user, id);
+            PopupMessage(UPDATED_MESSAGE);
             navigate("/");
         } catch (error) {
+            PopupMessage(ERROR_MESSAGE)
             console.log(error);
         }
     }

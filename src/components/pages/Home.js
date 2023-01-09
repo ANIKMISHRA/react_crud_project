@@ -9,6 +9,8 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 
 // service
 import { deleteSpecificUser, getUsers } from '../services/Services';
+import { PopupMessage } from '../services/PopupMessages';
+import { ERROR_MESSAGE, DELETED_MESSAGE } from '../services/Messages';
 
 /**
  * Method to handle to show all users data
@@ -44,8 +46,10 @@ const Home = () => {
             await deleteSpecificUser(id);
             const results = await getUsers();
             setUsers(results?.data.reverse()) 
+            PopupMessage(DELETED_MESSAGE);
             navigate('/');
         } catch (error) {
+            PopupMessage(ERROR_MESSAGE);
             console.log(error);
         }
     }
@@ -56,7 +60,7 @@ const Home = () => {
                 <h1>Home Page</h1>
                 <table className="table border shadow">
                     <thead className="thead-dark">
-                        <tr>
+                        <tr className='align-middle'>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">User Name</th>
@@ -66,8 +70,8 @@ const Home = () => {
                     </thead>
                     <tbody>
                         {
-                            users?.map((user, index) => (
-                                <tr key={index}>
+                          users && users?.map((user, index) => (
+                                <tr className='align-middle' key={index}>
                                     <th scope="row">{index + 1}</th>
                                     <td>{user?.name}</td>
                                     <td>{user?.username}</td>

@@ -32,7 +32,7 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                         className="form-control form-control-md"
                         value={name}
                         onChange={e => onInputChange(e)}
-                        placeholder="emnter your name" name="name"
+                        placeholder="enter your name" name="name"
                     />
                     <span className="frm-val-error">{formErrors?.name}</span>
                 </div>
@@ -92,7 +92,7 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                     <span className="frm-val-error">{formErrors?.website}</span>
                 </div>
             </div>
-            <button type="submit" disabled={!name || !email} className="btn btn-primary btn-block">{id ? 'Update user' : 'Add user'}</button>
+            <button type="submit" disabled={!name || !email} className="btn btn-secondary btn-block">{id ? 'Update user' : 'Add user'}</button>
         </form>
     )
 }

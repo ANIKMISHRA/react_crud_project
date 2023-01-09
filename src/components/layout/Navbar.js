@@ -15,7 +15,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
             <div className="container">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">React Users</a>
+                    <h1>React Users</h1>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -29,15 +29,15 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <NavLink className="nav-link" exact to="/">
+                                <NavLink className="nav-link text-white" exact to="/">
                                     Home<AiOutlineHome />
                                 </NavLink>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <Link className="btn btn-light btn-outline-dark pl-5 " type="button" to="/users/add">
-                    <VscAdd />
+                <Link className="btn btn-light btn-outline-dark px-4 " type="button" to="/users/add">
+                    <VscAdd size='40px'/>
                 </Link>
             </div>
         </nav>

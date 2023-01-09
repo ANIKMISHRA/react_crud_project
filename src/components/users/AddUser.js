@@ -1,6 +1,5 @@
 // npm packages
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 // component
@@ -8,6 +7,8 @@ import Form from "../layout/Form";
 
 // service
 import { addUser } from "../services/Services";
+import { SUCCESS_MESSAGE, ERROR_MESSAGE } from "../services/Messages";
+import { PopupMessage } from "../services/PopupMessages";
 
 /**
  * Method to handle add user
@@ -46,11 +47,19 @@ const AddUser = () => {
     /**
      * Component did mount
      */
-    useEffect(async (e) => {
-        if (Object.keys(formErrors).length === 0 && isSubmit) {
-            await addUser(user);
-            navigate("/");
-        }
+    useEffect(() => {
+        (async () => {
+            try {
+                if (Object.keys(formErrors).length === 0 && isSubmit) {
+                    await addUser(user);
+                    PopupMessage(SUCCESS_MESSAGE)
+                    navigate("/");
+                }       
+            } catch (error) {
+                PopupMessage(ERROR_MESSAGE);
+               console.log(error) ;
+            }
+        })();
     }, [formErrors])
 
     // form validation
@@ -82,8 +91,10 @@ const AddUser = () => {
 
     return (
         <div className="container">
-            <h1>Add User</h1>
-            <Form user={user} setUser={setUser} onSubmit={onSubmit} formErrors={formErrors} />
+            <div className="py-4">
+                <h1>Add User</h1>
+                <Form user={user} setUser={setUser} onSubmit={onSubmit} formErrors={formErrors} />
+            </div>
         </div>
     )
 }
