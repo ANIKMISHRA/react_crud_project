@@ -46,14 +46,16 @@ const EditUser = () => {
     /**
      * Component did mount
      */
-    useEffect(async () => {
-        try {
-            const result = await getSpecificUser(id);
-            setUser(result?.data);
-        } catch (error) {
-            console.log(error);
-        }
-    }, [])
+    useEffect(() => {
+        (async () => {
+            try {
+                const result = await getSpecificUser(id);
+                setUser(result?.data);
+            } catch (error) {
+                console.log(error);
+            }
+        })();
+    }, []);
 
     return (
         <div className="container">

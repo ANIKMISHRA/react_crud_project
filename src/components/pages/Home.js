@@ -24,13 +24,15 @@ const Home = () => {
     /**
      * Component did mount
      */
-    useEffect(async() => {
-        try {
+    useEffect(() => {
+        (async () => {
+            try {
             const results = await getUsers();
             setUsers(results?.data.reverse())   
         } catch (error) {
             console.log(error);
         }
+        })();
     }, []);
 
     /**

@@ -25,9 +25,15 @@ const ViewUser = () => {
     /**
      * Component did mount
      */
-    useEffect(async() => {
-        const result = await getSpecificUser(id);
-        setUser(result?.data)
+    useEffect(() => {
+        (async () => {
+            try {
+                const result = await getSpecificUser(id);
+                setUser(result?.data);
+            } catch (error) {
+                console.log(error);
+            }
+        })();
     }, [])
 
     return (

@@ -18,7 +18,7 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
      * @param {string} param0 , param1
      */
     const onInputChange = ({ target: { value = '', name = '' } }) => {
-        setUser({ ...user, [name]: value });
+        setUser({ ...user, [name]: value.trimStart() });
     }
 
     return (
@@ -92,7 +92,7 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                     <span className="frm-val-error">{formErrors?.website}</span>
                 </div>
             </div>
-            <button type="submit" className="btn btn-primary btn-block">{id ? 'Update user' : 'Add user'}</button>
+            <button type="submit" disabled={!name || !email} className="btn btn-primary btn-block">{id ? 'Update user' : 'Add user'}</button>
         </form>
     )
 }
