@@ -1,12 +1,12 @@
 // npm packages
-import { BrowserRouter as Router,  Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router,  Route, Routes } from 'react-router-dom';
 
 // components
-import Navbar from './components/layout/Navbar';
-import Home from "./components/pages/Home.js";
-import AddUser from './components/users/AddUser';
-import EditUser from './components/users/EditUser';
-import ViewUser from './components/users/User';
+import Navbar from './Layouts/Navbar/Navbar';
+import Home from "./pages/Home.js";
+import AddUser from './components/Users/AddUser';
+import EditUser from './components/Users/EditUser';
+import ViewUser from './components/Users/User';
 
 // styles
 import "../node_modules/bootstrap/dist/css/bootstrap.css";

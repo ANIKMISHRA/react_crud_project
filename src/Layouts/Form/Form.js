@@ -32,7 +32,7 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                         className="form-control form-control-md"
                         value={name}
                         onChange={e => onInputChange(e)}
-                        placeholder="enter your name" name="name"
+                        placeholder="Enter your name" name="name"
                     />
                     <span className="frm-val-error">{formErrors?.name}</span>
                 </div>
@@ -45,7 +45,7 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                         type="text"
                         className="form-control form-control-md"
                         value={username} onChange={e => onInputChange(e)}
-                        placeholder="enter your user name"
+                        placeholder="Enter your user name"
                         name="username"
                     />
                     <span className="frm-val-error">{formErrors?.username}</span>
@@ -59,7 +59,7 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                         type="text"
                         className="form-control form-control-md"
                         value={email} onChange={e => onInputChange(e)}
-                        placeholder="enter your email" name="email"
+                        placeholder="Enter your email" name="email"
                     />
                     <span className="frm-val-error">{formErrors?.email}</span>
                 </div>
@@ -72,7 +72,7 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                         type="text"
                         className="form-control form-control-md"
                         value={phone} onChange={e => onInputChange(e)}
-                        placeholder="enter your phone"
+                        placeholder="Enter your phone"
                         name="phone"
                     />
                     <span className="frm-val-error">{formErrors?.phone}</span>
@@ -86,7 +86,7 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                         type="text"
                         className="form-control form-control-md"
                         value={website} onChange={e => onInputChange(e)}
-                        placeholder="enter your website"
+                        placeholder="Enter your website"
                         name="website"
                     />
                     <span className="frm-val-error">{formErrors?.website}</span>

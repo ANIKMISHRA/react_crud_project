@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // component
-import Form from "../layout/Form";
+import Form from "../../Layouts/Form/Form";
 
 // service
-import { addUser } from "../services/Services";
-import { SUCCESS_MESSAGE, ERROR_MESSAGE } from "../services/Messages";
-import { PopupMessage } from "../services/PopupMessages";
+import { addUser } from "../../Services";
+import { SUCCESS_MESSAGE, ERROR_MESSAGE } from "../../Services/Constants/Messages";
+import { popupMessages } from "../../Services/popupMessages";
 
 /**
  * Method to handle add user
@@ -52,11 +52,11 @@ const AddUser = () => {
             try {
                 if (Object.keys(formErrors).length === 0 && isSubmit) {
                     await addUser(user);
-                    PopupMessage(SUCCESS_MESSAGE)
+                    popupMessages(SUCCESS_MESSAGE)
                     navigate("/");
                 }       
             } catch (error) {
-                PopupMessage(ERROR_MESSAGE);
+                popupMessages(ERROR_MESSAGE);
                console.log(error) ;
             }
         })();
@@ -64,7 +64,6 @@ const AddUser = () => {
 
     // form validation
     const validate = (users) => {
-
         const errors = {}
         const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -88,7 +87,6 @@ const AddUser = () => {
         }
         return errors;
     }
-
     return (
         <div className="container">
             <div className="py-4">

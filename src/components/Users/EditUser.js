@@ -1,15 +1,14 @@
 // npm packages
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 // component
-import Form from "../layout/Form";
+import Form from "../../Layouts/Form/Form";
 
 // services 
-import { getSpecificUser, updateSpecificUserData } from "../services/Services";
-import { PopupMessage } from "../services/PopupMessages";
-import { UPDATED_MESSAGE, ERROR_MESSAGE } from "../services/Messages";
+import { getSpecificUser, updateSpecificUserData } from "../../Services";
+import { popupMessages } from "../../Services/popupMessages";
+import { UPDATED_MESSAGE, ERROR_MESSAGE } from "../../Services/Constants/Messages";
 
 /**
  * Method to handle to edit user data.
@@ -38,10 +37,10 @@ const EditUser = () => {
         event.preventDefault();
         try {
             await updateSpecificUserData(user, id);
-            PopupMessage(UPDATED_MESSAGE);
+            popupMessages(UPDATED_MESSAGE);
             navigate("/");
         } catch (error) {
-            PopupMessage(ERROR_MESSAGE)
+            popupMessages(ERROR_MESSAGE)
             console.log(error);
         }
     }
@@ -63,8 +62,10 @@ const EditUser = () => {
 
     return (
         <div className="container">
-            <h1>Edit User</h1>
-            <Form user={user} setUser={setUser} onSubmit={onSubmit} id={id} />
+            <div className="py-4">
+                <h1>Edit User</h1>
+                <Form user={user} setUser={setUser} onSubmit={onSubmit} id={id} />
+            </div>
         </div>
     )
 }
