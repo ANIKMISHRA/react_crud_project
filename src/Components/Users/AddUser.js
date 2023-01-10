@@ -12,6 +12,9 @@ import { addUser } from "../../Services";
 import { SUCCESS_MESSAGE, ERROR_MESSAGE } from "../../Services/Constants/Messages";
 import { popupMessages } from "../../Services/popupMessages";
 
+// constant
+import { HOME_PATH } from "../../Services/Constants/Path";
+
 /**
  * Method to handle add user
  * @returns node
@@ -42,9 +45,9 @@ const AddUser = () => {
             setFormErrors(validation(user));
             setIsSubmit(true);
         } catch (error) {
+            popupMessages(ERROR_MESSAGE);
             console.log(error);
         }
-
     }
 
     /**
@@ -53,10 +56,11 @@ const AddUser = () => {
     useEffect(() => {
             try {
                 if (Object.keys(formErrors).length === 0 && isSubmit) {
-                   // addUser(user);
-                   setUserDatas([...userDatas, user]);
+                   addUser(user).then((res) => {
+                       setUserDatas([...userDatas, res?.data]);
+                   })
                     popupMessages(SUCCESS_MESSAGE);
-                    navigate("/");
+                    navigate(HOME_PATH);
                 }       
             } catch (error) {
                 popupMessages(ERROR_MESSAGE);

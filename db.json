@@ -1,100 +1,20 @@
 {
   "users": [
     {
-      "name": "Jordan",
-      "username": "Jordan Joe",
-      "email": "jordanjoe@gmail.com",
-      "phone": "8976547892",
-      "website": "jordan_joe.com",
+      "name": "sdfsda",
+      "username": "fsdfs",
+      "email": "anik@gmail.com",
+      "phone": "sdfds",
+      "website": "fdsfs",
       "id": 1
     },
     {
-      "name": "Loreum",
-      "username": "Loreum Ipsum",
-      "email": "loreum@gmail.com",
-      "phone": "8376676327",
-      "website": "loreumipsum.com",
+      "name": "sdfsda fsadfsda",
+      "username": "dfsfdsa",
+      "email": "adfdfd@gmail.com",
+      "phone": "fsdsdfs",
+      "website": "fsdfsd",
       "id": 2
-    },
-    {
-      "name": "Akbar",
-      "username": "Akbar Badshah",
-      "email": "akbarbadshah@gmail.com",
-      "phone": "7865743892",
-      "website": "akbardanceclub.com",
-      "id": 3
-    },
-    {
-      "name": "Lawrence",
-      "username": "Lawrence Bishnoi",
-      "email": "lawrence@gmail.com",
-      "phone": "6789543785",
-      "website": "lawrence.com",
-      "id": 4
-    },
-    {
-      "name": "Anik",
-      "username": "Anik Mishra",
-      "email": "anik@gmail.com",
-      "phone": "8288873858",
-      "website": "anikdanceclub.com",
-      "id": 5
-    },
-    {
-      "name": "Jolly",
-      "username": "Jolly Juet",
-      "email": "jollyjuet@gmail.com",
-      "phone": "9756456789",
-      "website": "jollyjuetonlineshop.com",
-      "id": 6
-    },
-    {
-      "name": "Stiephen",
-      "username": "Stiephen Robert",
-      "email": "stiephen@gmail.com",
-      "phone": "8976452367",
-      "website": "stiephenquarell.com",
-      "id": 7
-    },
-    {
-      "name": "Jenny ",
-      "username": "Jenny Law",
-      "email": "jenny@gmail.com",
-      "phone": "8976452858",
-      "website": "jennydancingplace.com",
-      "id": 8
-    },
-    {
-      "name": "Daud ",
-      "username": "Daud Ibrahim",
-      "email": "daudibrahim@gmail.com",
-      "phone": "9879685478",
-      "website": "dauddon.com",
-      "id": 9
-    },
-    {
-      "name": "Jordan",
-      "username": "Jordan Walke",
-      "email": "jordan@gmail.com",
-      "phone": "8976456789",
-      "website": "jordanwalkereactfounder.com",
-      "id": 10
-    },
-    {
-      "name": "Robert",
-      "username": "Robert Helli",
-      "email": "roberthelli@gmail.com",
-      "phone": "8376676327",
-      "website": "robertclub.com",
-      "id": 11
-    },
-    {
-      "name": "Aman",
-      "username": "Aman Sharma",
-      "email": "aman@gmail.com",
-      "phone": "8376676327",
-      "website": "amandanceclub.com",
-      "id": 12
     }
   ]
 }

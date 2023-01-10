@@ -19,7 +19,7 @@ const getUsers = async () => {
  * @returns promises
  */
 const addUser = async (user) => {
-    return await await axios.post(`${baseUrl}/users`, user);
+    return await axios.post(`${baseUrl}/users`, user);
 };
 
 /**

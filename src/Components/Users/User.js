@@ -1,12 +1,18 @@
 // npm packages
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 
 // react icons
 import { SlArrowLeft } from "react-icons/sl";
 
+// component
+import { viewComponent } from "../Common/ViewComponent";
+import Context1 from "../../Contexts/Context1";
+
 // service
 import { getSpecificUser } from "../../Services";
+import { popupMessages } from "../../Services/popupMessages";
+import { ERROR_MESSAGE } from "../../Services/Constants/Messages";
 
 /**
  * Method to handle to view user details
@@ -15,15 +21,10 @@ import { getSpecificUser } from "../../Services";
 const ViewUser = () => {
   // const
   const { id } = useParams();
+  const { userDatas } = useContext(Context1);
 
   // states
-  const [user, setUser] = useState({
-    name: "",
-    username: "",
-    email: "",
-    phone: "",
-    website: "",
-  });
+  const [user, setUser] = useState({});
 
   // destructuring user's data.
   const { name, username, email, phone, website } = user;
@@ -32,14 +33,14 @@ const ViewUser = () => {
    * Component did mount
    */
   useEffect(() => {
-    (async () => {
       try {
-        const result = await getSpecificUser(id);
-        setUser(result?.data);
+          getSpecificUser(id).then(() => {
+          viewComponent(id, setUser, userDatas );
+        });
       } catch (error) {
+        popupMessages(ERROR_MESSAGE);
         console.log(error);
       }
-    })();
   }, []);
 
   return (

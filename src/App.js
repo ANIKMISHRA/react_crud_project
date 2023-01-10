@@ -1,5 +1,5 @@
 // npm packages
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 
 // components
 import Navbar from "./Layouts/Navbar/Navbar";
@@ -9,12 +9,29 @@ import Context2 from "./Contexts/Context2";
 import Context3 from "./Contexts/Context3";
 import Context4 from "./Contexts/Context4";
 
+// service
+import { getUsers } from "./Services";
+import { ERROR_MESSAGE } from "./Services/Constants/Messages";
 // styles
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 
 const App = () => {
   // state
   const [userDatas, setUserDatas] = useState([]);
+
+  /**
+   * component did mount
+   */
+  useEffect(() => {
+    try {
+      getUsers().then((res) => {
+        setUserDatas(res?.data.reverse());
+      })
+    } catch (error) {
+      popupMessages(ERROR_MESSAGE);
+      console.log(error);
+    }
+  }, [])
 
   /**
    * useMemo hook stop the rerendring again and again.

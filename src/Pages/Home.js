@@ -15,6 +15,9 @@ import { deleteSpecificUser, getUsers } from '../Services';
 import { popupMessages } from '../Services/popupMessages';
 import { ERROR_MESSAGE, DELETED_MESSAGE } from '../Services/Constants/Messages';
 
+// constants
+import { HOME_PATH, EDIT_USER_PATH, VIEW_USER_PATH } from '../Services/Constants/Path';
+
 /**
  * Method to handle to show all users data
  * @returns node
@@ -22,24 +25,7 @@ import { ERROR_MESSAGE, DELETED_MESSAGE } from '../Services/Constants/Messages';
 const Home = () => {
     // const
     const navigate = useNavigate();
-    const {userDatas, setUserDatas } = useContext(Context1);
-
-    // state
-    const [users, setUsers] = useState([]);
-
-    /**
-     * Component did mount
-     */
-    // useEffect(() => {
-    //     (async () => {
-    //         try {
-    //         const results = await getUsers();
-    //         setUsers(results?.data.reverse())   
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    //     })();
-    // }, []);
+    const { userDatas, setUserDatas } = useContext(Context1);
 
     /**
      * Method to delete user
@@ -47,19 +33,17 @@ const Home = () => {
      */
     const deleteUser = async id => {
         try {
-            // // await deleteSpecificUser(id);
-            // // const results = await getUsers();
-            // setUsers(results?.data.reverse()) 
-           const updatedDatas = userDatas?.filter((user) => user?.id !== id);
-           setUserDatas(updatedDatas);
+            await deleteSpecificUser(id).then(() => {
+                const updatedDatas = userDatas?.filter((user) => user?.id !== id);
+                setUserDatas(updatedDatas);
+            })
             popupMessages(DELETED_MESSAGE);
-            navigate('/');
+            navigate(HOME_PATH);
         } catch (error) {
             popupMessages(ERROR_MESSAGE);
             console.log(error);
         }
     }
-
     return (
         <div className="container">
             <div className="py-4">
@@ -76,16 +60,18 @@ const Home = () => {
                     </thead>
                     <tbody>
                         {
-                          userDatas && userDatas?.map((user, index) => (
+                            userDatas && userDatas?.map((user, index) => (
                                 <tr className='align-middle text_font' key={index}>
                                     <th scope="row">{index + 1}</th>
                                     <td className='bg-light'>{user?.name}</td>
                                     <td className='bg-light'>{user?.username}</td>
                                     <td className='bg-light'>{user?.email}</td>
                                     <td className='bg-light text-center'>
-                                        <Link to={`/users/view/${user?.id}`} className="btn btn-light" ><GrView size="18px" /></Link>
-                                        <Link to={`/users/edit/${user?.id}`} className="btn btn-light text-primary" ><TbEdit size="18px" /></Link>
-                                        <button onClick={() => deleteUser(user?.id)} className="btn btn-light text-danger"><RiDeleteBin6Line size="18px" /></button>
+                                        <Link to={`${VIEW_USER_PATH}/${user?.id}`} className="btn btn-light" ><GrView size="18px" /></Link>
+                                        <Link to={`${EDIT_USER_PATH}/${user?.id}`} className="btn btn-light text-primary" ><TbEdit size="18px" /></Link>
+                                        <button type='button' onClick={() => deleteUser(user?.id)} className="btn btn-light text-danger">
+                                            <RiDeleteBin6Line size="18px" />
+                                        </button>
                                     </td>
                                 </tr>
                             ))

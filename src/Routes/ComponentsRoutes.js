@@ -8,6 +8,9 @@ import AddUser from '../Components/Users/AddUser';
 import EditUser from '../Components/Users/EditUser';
 import ViewUser from '../Components/Users/User';
 
+// constants
+import { VIEW_USER_PATH, HOME_PATH, EDIT_USER_PATH, ADD_USER_PATH } from '../Services/Constants/Path.js';
+
 /**
  * Method to handle components routes.
  * @returns 
@@ -16,10 +19,10 @@ const ComponentsRoutes = () => {
   return (
     <div>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/users/add" element={<AddUser/>} />
-          <Route exact path="/users/edit/:id" element={<EditUser />} />
-          <Route exact path="/users/view/:id" element={<ViewUser />} />
+          <Route exact path={`${HOME_PATH}`} element={<Home />} />
+          <Route exact path={`${ADD_USER_PATH}`} element={<AddUser/>} />
+          <Route exact path={`${EDIT_USER_PATH}/:id`} element={<EditUser />} />
+          <Route exact path={`${VIEW_USER_PATH}/:id`} element={<ViewUser />} />
         </Routes>
     </div>
   )

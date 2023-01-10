@@ -5,11 +5,15 @@ import { useNavigate, useParams } from "react-router-dom";
 // component
 import Form from "../Form/Form";
 import Context1 from "../../Contexts/Context1";
+import { viewComponent } from "../Common/ViewComponent";
 
 // services 
 import { getSpecificUser, updateSpecificUserData } from "../../Services";
 import { popupMessages } from "../../Services/popupMessages";
 import { UPDATED_MESSAGE, ERROR_MESSAGE } from "../../Services/Constants/Messages";
+
+// constant
+import { HOME_PATH } from "../../Services/Constants/Path";
 
 /**
  * Method to handle to edit user data.
@@ -38,13 +42,14 @@ const EditUser = () => {
     const onSubmit = event => {
         event.preventDefault();
         try {
-            const updatedUser = userDatas?.map((users) => {
-                return users.id !== id ? users : user;
-            });   // updateSpecificUserData(user, id);
-            console.log("dfasfsdafsad",updatedUser);
-            setUserDatas(updatedUser)
-            popupMessages(UPDATED_MESSAGE);
-            navigate("/");
+            updateSpecificUserData(user, id).then(() => {
+                const updatedUser = userDatas?.map((users) => {
+                    return users.id !== id ? users : user;
+                });  
+                navigate(HOME_PATH);
+                setUserDatas(updatedUser)
+                popupMessages(UPDATED_MESSAGE);
+            })
         } catch (error) {
             popupMessages(ERROR_MESSAGE)
             console.log(error);
@@ -56,17 +61,14 @@ const EditUser = () => {
      * Component did mount
      */
     useEffect(() => {
-            try {
-                const user = userDatas?.find((users) => {
-                    if(users?.id === id) {
-                        return user;
-                    }
-                    return users;
-                });                // getSpecificUser(id);
-                setUser(user);
-            } catch (error) {
-                console.log(error);
-            }
+        try {
+            getSpecificUser(id).then(() => {
+               viewComponent(id, setUser, userDatas);
+            })
+        } catch (error) {
+            popupMessages(ERROR_MESSAGE);
+            console.log(error);
+        }
     }, []);
 
     return (

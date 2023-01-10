@@ -6,6 +6,9 @@ import { Link, NavLink } from "react-router-dom";
 import { VscAdd } from "react-icons/vsc";
 import { AiOutlineHome } from "react-icons/ai";
 
+// constants
+import { ADD_USER_PATH } from "../../Services/Constants/Path";
+
 /**
  * Method to show layout on navbar
  * @returns node
@@ -31,7 +34,7 @@ const Navbar = () => {
           <Link
             className="btn btn-light btn-outline-dark px-4 "
             type="button"
-            to="/users/add"
+            to={`${ADD_USER_PATH}`}
           >
             <VscAdd size="25px" />
           </Link>
