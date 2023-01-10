@@ -16,17 +16,6 @@ const Navbar = () => {
       <div className="container">
         <div className="container-fluid">
           <h1 className="text-light">React Users</h1>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
@@ -38,7 +27,7 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <div className="align-text-bottom">
+        <div className="align-text-bottom display-flex">
           <Link
             className="btn btn-light btn-outline-dark px-4 "
             type="button"

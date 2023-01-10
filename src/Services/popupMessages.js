@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
  */
 const popupMessages = (title) => {
     Swal.fire({
-        position: 'top-end',
+        position: 'top-right',
         title: title,
         timer: 1500,
         confirmButtonColor: '#3085d6'

@@ -1,68 +1,100 @@
 {
   "users": [
     {
-      "name": "Anik",
-      "username": "Anik Mishra",
-      "email": "anikmishra@gmail.com",
-      "phone": "8276453629",
-      "website": "codlee.com",
+      "name": "Jordan",
+      "username": "Jordan Joe",
+      "email": "jordanjoe@gmail.com",
+      "phone": "8976547892",
+      "website": "jordan_joe.com",
       "id": 1
     },
     {
-      "name": "Jenny",
-      "username": "Jenny Joy",
-      "email": "jenny@gmail.com",
-      "phone": "8976547893",
-      "website": "jennyjulien.com",
+      "name": "Loreum",
+      "username": "Loreum Ipsum",
+      "email": "loreum@gmail.com",
+      "phone": "8376676327",
+      "website": "loreumipsum.com",
       "id": 2
     },
     {
-      "name": "Geli",
-      "username": "Geli",
-      "email": "geli@gmail.com",
-      "phone": "9876543567",
-      "website": "gelimeet.com",
+      "name": "Akbar",
+      "username": "Akbar Badshah",
+      "email": "akbarbadshah@gmail.com",
+      "phone": "7865743892",
+      "website": "akbardanceclub.com",
       "id": 3
     },
     {
-      "name": "Jhon",
-      "username": "Jhon June",
-      "email": "jhon@gmail.com",
-      "phone": "9876578493",
-      "website": "jhon_patchu.com",
+      "name": "Lawrence",
+      "username": "Lawrence Bishnoi",
+      "email": "lawrence@gmail.com",
+      "phone": "6789543785",
+      "website": "lawrence.com",
       "id": 4
     },
     {
-      "name": "Juliet",
-      "username": "Juliet",
-      "email": "julient@gmail.com",
-      "phone": "9087654890",
-      "website": "Julietdoorer.com",
+      "name": "Anik",
+      "username": "Anik Mishra",
+      "email": "anik@gmail.com",
+      "phone": "8288873858",
+      "website": "anikdanceclub.com",
       "id": 5
     },
     {
-      "name": "Yashi",
-      "username": "Yashi Sirvastava",
-      "email": "yashi@gmail.com",
-      "phone": "9087654890",
-      "website": "yashiloveanik.com",
+      "name": "Jolly",
+      "username": "Jolly Juet",
+      "email": "jollyjuet@gmail.com",
+      "phone": "9756456789",
+      "website": "jollyjuetonlineshop.com",
       "id": 6
     },
     {
-      "name": "Aman",
-      "username": "Aman Jordan",
-      "email": "aman@gmail.com",
-      "phone": "837667632733",
-      "website": "Amanjordandone.com",
+      "name": "Stiephen",
+      "username": "Stiephen Robert",
+      "email": "stiephen@gmail.com",
+      "phone": "8976452367",
+      "website": "stiephenquarell.com",
       "id": 7
     },
     {
-      "name": "Aman ",
-      "username": "Aman Deniam Deniam",
-      "email": "aman@gmail.com",
-      "phone": "43435656765876",
-      "website": "AmanDeniam.com",
+      "name": "Jenny ",
+      "username": "Jenny Law",
+      "email": "jenny@gmail.com",
+      "phone": "8976452858",
+      "website": "jennydancingplace.com",
+      "id": 8
+    },
+    {
+      "name": "Daud ",
+      "username": "Daud Ibrahim",
+      "email": "daudibrahim@gmail.com",
+      "phone": "9879685478",
+      "website": "dauddon.com",
+      "id": 9
+    },
+    {
+      "name": "Jordan",
+      "username": "Jordan Walke",
+      "email": "jordan@gmail.com",
+      "phone": "8976456789",
+      "website": "jordanwalkereactfounder.com",
+      "id": 10
+    },
+    {
+      "name": "Robert",
+      "username": "Robert Helli",
+      "email": "roberthelli@gmail.com",
+      "phone": "8376676327",
+      "website": "robertclub.com",
       "id": 11
+    },
+    {
+      "name": "Aman",
+      "username": "Aman Sharma",
+      "email": "aman@gmail.com",
+      "phone": "8376676327",
+      "website": "amandanceclub.com",
+      "id": 12
     }
   ]
 }
