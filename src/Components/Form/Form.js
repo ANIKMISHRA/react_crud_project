@@ -22,7 +22,7 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
     }
 
     return (
-        <form onSubmit={e => onSubmit(e)}>
+        <form onSubmit={onSubmit}>
             {/* Name */}
             <div className="row mb-3 form-group">
                 <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Name</label>
@@ -30,11 +30,11 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                     <input
                         type="text"
                         className="form-control form-control-md"
-                        value={name}
-                        onChange={e => onInputChange(e)}
+                        value={name || ''}
+                        onChange={onInputChange}
                         placeholder="Enter your name" name="name"
                     />
-                    <span className="frm-val-error">{formErrors?.name}</span>
+                    <span className="text-danger">{formErrors?.name}</span>
                 </div>
             </div>
             {/* User Name */}
@@ -44,11 +44,11 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                     <input
                         type="text"
                         className="form-control form-control-md"
-                        value={username} onChange={e => onInputChange(e)}
+                        value={username || ''} onChange={onInputChange}
                         placeholder="Enter your user name"
                         name="username"
                     />
-                    <span className="frm-val-error">{formErrors?.username}</span>
+                    <span className="text-danger">{formErrors?.username}</span>
                 </div>
             </div>
             {/* Email */}
@@ -58,10 +58,10 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                     <input
                         type="text"
                         className="form-control form-control-md"
-                        value={email} onChange={e => onInputChange(e)}
+                        value={email || ''} onChange={onInputChange}
                         placeholder="Enter your email" name="email"
                     />
-                    <span className="frm-val-error">{formErrors?.email}</span>
+                    <span className="text-danger">{formErrors?.email}</span>
                 </div>
             </div>
             {/* Phone */}
@@ -71,11 +71,11 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                     <input
                         type="text"
                         className="form-control form-control-md"
-                        value={phone} onChange={e => onInputChange(e)}
+                        value={phone || ''} onChange={onInputChange}
                         placeholder="Enter your phone"
                         name="phone"
                     />
-                    <span className="frm-val-error">{formErrors?.phone}</span>
+                    <span className="text-danger">{formErrors?.phone}</span>
                 </div>
             </div>
             {/* Website */}
@@ -85,11 +85,11 @@ const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
                     <input
                         type="text"
                         className="form-control form-control-md"
-                        value={website} onChange={e => onInputChange(e)}
+                        value={website || ''} onChange={onInputChange}
                         placeholder="Enter your website"
                         name="website"
                     />
-                    <span className="frm-val-error">{formErrors?.website}</span>
+                    <span className="text-danger">{formErrors?.website}</span>
                 </div>
             </div>
             <button type="submit" disabled={!name || !email} className="btn btn-secondary btn-block">{id ? 'Update user' : 'Add user'}</button>

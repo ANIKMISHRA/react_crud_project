@@ -1,6 +1,9 @@
 // npm packages
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
+// components
+import Context1 from '../Contexts/Context1';
 
 // react icons
 import { GrView } from 'react-icons/gr';
@@ -19,6 +22,7 @@ import { ERROR_MESSAGE, DELETED_MESSAGE } from '../Services/Constants/Messages';
 const Home = () => {
     // const
     const navigate = useNavigate();
+    const {userDatas, setUserDatas } = useContext(Context1);
 
     // state
     const [users, setUsers] = useState([]);
@@ -26,16 +30,16 @@ const Home = () => {
     /**
      * Component did mount
      */
-    useEffect(() => {
-        (async () => {
-            try {
-            const results = await getUsers();
-            setUsers(results?.data.reverse())   
-        } catch (error) {
-            console.log(error);
-        }
-        })();
-    }, []);
+    // useEffect(() => {
+    //     (async () => {
+    //         try {
+    //         const results = await getUsers();
+    //         setUsers(results?.data.reverse())   
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    //     })();
+    // }, []);
 
     /**
      * Method to delete user
@@ -43,9 +47,11 @@ const Home = () => {
      */
     const deleteUser = async id => {
         try {
-            await deleteSpecificUser(id);
-            const results = await getUsers();
-            setUsers(results?.data.reverse()) 
+            // // await deleteSpecificUser(id);
+            // // const results = await getUsers();
+            // setUsers(results?.data.reverse()) 
+           const updatedDatas = userDatas?.filter((user) => user?.id !== id);
+           setUserDatas(updatedDatas);
             popupMessages(DELETED_MESSAGE);
             navigate('/');
         } catch (error) {
@@ -70,7 +76,7 @@ const Home = () => {
                     </thead>
                     <tbody>
                         {
-                          users && users?.map((user, index) => (
+                          userDatas && userDatas?.map((user, index) => (
                                 <tr className='align-middle text_font' key={index}>
                                     <th scope="row">{index + 1}</th>
                                     <td className='bg-light'>{user?.name}</td>
