@@ -17,6 +17,10 @@ import { ERROR_MESSAGE } from "./Services/Constants/Messages";
 // styles
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 
+/**
+ * Method to handle the whole project.
+ * @returns node
+ */
 const App = () => {
   // state
   const [userDatas, setUserDatas] = useState([]);
@@ -28,12 +32,12 @@ const App = () => {
     try {
       getUsers().then((res) => {
         setUserDatas(res?.data.reverse());
-      })
+      });
     } catch (error) {
       popupMessages(ERROR_MESSAGE);
       console.log(error);
     }
-  }, [])
+  }, []);
 
   /**
    * useMemo hook stop the rerendring again and again.
@@ -44,7 +48,6 @@ const App = () => {
       setUserDatas,
     };
   });
-
   return (
     <div className="App">
       <Navbar />

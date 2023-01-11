@@ -10,7 +10,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { ADD_USER_PATH } from "../../Services/Constants/Path";
 
 /**
- * Method to show layout on navbar
+ * Method to show layout of navbar on all pages.
  * @returns node
  */
 const Navbar = () => {

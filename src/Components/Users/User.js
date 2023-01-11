@@ -1,5 +1,5 @@
 // npm packages
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 // react icons
@@ -7,7 +7,7 @@ import { SlArrowLeft } from "react-icons/sl";
 
 // component
 import { userDetails } from "../Common/userDetails";
-import Context1 from "../../Contexts/Context1";
+import { useContext1 } from "../Common/CustomHook";
 
 // service
 import { getSpecificUser } from "../../Services";
@@ -15,32 +15,32 @@ import { popupMessages } from "../../Services/popupMessages";
 import { ERROR_MESSAGE } from "../../Services/Constants/Messages";
 
 /**
- * Method to handle to view user details
+ * Method to handle to show the details of any specific user from user listing.
  * @returns node
  */
 const ViewUser = () => {
   // const
   const { id } = useParams();
-  const { userDatas } = useContext(Context1);
+  const { userDatas } = useContext1();
 
   // states
   const [user, setUser] = useState({});
 
   // destructuring user's data.
-  const { name, username, email, phone, website } = user;
+  const { name, username, email, phone, website } = user || {};
 
   /**
    * Component did mount
    */
   useEffect(() => {
-      try {
-          getSpecificUser(id).then(() => {
-          userDetails(id, setUser, userDatas );
-        });
-      } catch (error) {
-        popupMessages(ERROR_MESSAGE);
-        console.log(error);
-      }
+    try {
+      getSpecificUser(id).then(() => {
+        userDetails(id, setUser, userDatas);
+      });
+    } catch (error) {
+      popupMessages(ERROR_MESSAGE);
+      console.log(error);
+    }
   }, []);
 
   return (

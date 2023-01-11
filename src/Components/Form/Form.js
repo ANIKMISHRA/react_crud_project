@@ -11,7 +11,7 @@ import React from "react";
 const Form = ({ user, onSubmit, formErrors, id, setUser }) => {
 
     // Destructuring user's data.
-    const { name, username, email, phone, website } = user;
+    const { name, username, email, phone, website } = user || {};
 
     /**
      * Methoid to handle the input change.
