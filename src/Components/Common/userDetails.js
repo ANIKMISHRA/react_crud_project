@@ -4,7 +4,7 @@
  * @param {function} setUser 
  * @param {array} userDatas 
  */
-const viewComponent = (id, setUser, userDatas) => {
+const userDetails = (id, setUser, userDatas) => {
     const user = userDatas?.find((users) => {
         if (users?.id === id) {
             return user;
@@ -13,4 +13,4 @@ const viewComponent = (id, setUser, userDatas) => {
     });
     setUser(user);
 }
-export {viewComponent};
+export {userDetails};

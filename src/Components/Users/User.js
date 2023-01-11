@@ -6,7 +6,7 @@ import { useParams, Link } from "react-router-dom";
 import { SlArrowLeft } from "react-icons/sl";
 
 // component
-import { viewComponent } from "../Common/ViewComponent";
+import { userDetails } from "../Common/userDetails";
 import Context1 from "../../Contexts/Context1";
 
 // service
@@ -35,7 +35,7 @@ const ViewUser = () => {
   useEffect(() => {
       try {
           getSpecificUser(id).then(() => {
-          viewComponent(id, setUser, userDatas );
+          userDetails(id, setUser, userDatas );
         });
       } catch (error) {
         popupMessages(ERROR_MESSAGE);

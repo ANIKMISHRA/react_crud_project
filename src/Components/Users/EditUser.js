@@ -5,10 +5,10 @@ import { useNavigate, useParams } from "react-router-dom";
 // component
 import Form from "../Form/Form";
 import Context1 from "../../Contexts/Context1";
-import { viewComponent } from "../Common/ViewComponent";
+import { userDetails } from "../Common/userDetails";
 
 // services 
-import { getSpecificUser, updateSpecificUserData } from "../../Services";
+import { getSpecificUser, getUsers, updateSpecificUserData } from "../../Services";
 import { popupMessages } from "../../Services/popupMessages";
 import { UPDATED_MESSAGE, ERROR_MESSAGE } from "../../Services/Constants/Messages";
 
@@ -36,18 +36,20 @@ const EditUser = () => {
     });
 
     /**
-     * Method to handle the on submit.(updation)
+     * Method to handle on submit (user data updation method)
      * @param {object} event 
      */
-    const onSubmit = event => {
+    const onSubmit = async (event) => {
         event.preventDefault();
         try {
-            updateSpecificUserData(user, id).then(() => {
-                const updatedUser = userDatas?.map((users) => {
-                    return users.id !== id ? users : user;
+            let updatedUser;
+           await updateSpecificUserData(user, id).then((res) => {
+                 updatedUser = userDatas?.map((users) => {
+                    return users.id !== id ? users : res?.data;
                 });  
+                setUserDatas(updatedUser);
+                getUsers();
                 navigate(HOME_PATH);
-                setUserDatas(updatedUser)
                 popupMessages(UPDATED_MESSAGE);
             })
         } catch (error) {
@@ -63,7 +65,7 @@ const EditUser = () => {
     useEffect(() => {
         try {
             getSpecificUser(id).then(() => {
-               viewComponent(id, setUser, userDatas);
+               userDetails(id, setUser, userDatas);
             })
         } catch (error) {
             popupMessages(ERROR_MESSAGE);

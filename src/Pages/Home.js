@@ -1,5 +1,5 @@
 // npm packages
-import React, { useState, useEffect, useContext } from 'react';
+import React, {useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // components
@@ -11,7 +11,7 @@ import { TbEdit } from 'react-icons/tb';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
 // service
-import { deleteSpecificUser, getUsers } from '../Services';
+import { deleteSpecificUser} from '../Services';
 import { popupMessages } from '../Services/popupMessages';
 import { ERROR_MESSAGE, DELETED_MESSAGE } from '../Services/Constants/Messages';
 
@@ -34,7 +34,7 @@ const Home = () => {
     const deleteUser = async id => {
         try {
             await deleteSpecificUser(id).then(() => {
-                const updatedDatas = userDatas?.filter((user) => user?.id !== id);
+               let updatedDatas = userDatas?.filter((user) => user?.id !== id);
                 setUserDatas(updatedDatas);
             })
             popupMessages(DELETED_MESSAGE);
