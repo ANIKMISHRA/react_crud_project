@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Form from "../Form/Form";
 import { validation } from "../FormValidation";
 import { useContext3 } from "../Common/CustomHook";
+import hocComponent from "../../HocComponent/Hoc";
 
 // service
 import { addUser } from "../../Services";
@@ -85,4 +86,4 @@ const AddUser = () => {
     </div>
   );
 };
-export default AddUser;
+export default hocComponent(AddUser);

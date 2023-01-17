@@ -7,7 +7,7 @@ import { VscAdd } from "react-icons/vsc";
 import { AiOutlineHome } from "react-icons/ai";
 
 // constants
-import { ADD_USER_PATH } from "../../Services/Constants/Path";
+import { ADD_USER_PATH, LOGIN_PATH } from "../../Services/Constants/Path";
 
 /**
  * Method to show layout of navbar on all pages.
@@ -31,14 +31,16 @@ const Navbar = () => {
           </div>
         </div>
         <div className="align-text-bottom display-flex">
+
           <Link
-            className="btn btn-light btn-outline-dark px-4 "
+            className="btn btn-light btn-outline-dark px-4 mx-5 "
             type="button"
             to={`${ADD_USER_PATH}`}
           >
             <VscAdd size="25px" />
           </Link>
         </div>
+        <Link to={LOGIN_PATH} className="btn btn-light btn-outline-dark">Login</Link>
       </div>
     </nav>
   );

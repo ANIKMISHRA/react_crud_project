@@ -16,6 +16,8 @@ import { ERROR_MESSAGE } from "./Services/Constants/Messages";
 
 // styles
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import './Styles/index.css';
+import { useSelector } from "react-redux";
 
 /**
  * Method to handle the whole project.
@@ -24,7 +26,6 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 const App = () => {
   // state
   const [userDatas, setUserDatas] = useState([]);
-
   /**
    * component did mount
    */

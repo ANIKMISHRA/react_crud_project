@@ -1,12 +1,36 @@
 {
   "users": [
     {
-      "name": "ramf sdfsd",
-      "username": "dfsfdsa",
-      "email": "adfdfd@gmail.com",
-      "phone": "fsdsdfs",
-      "website": "fsdfsd",
-      "id": 2
+      "name": "fsdfsd",
+      "username": "dfsfsd",
+      "email": "Aman@gmail.com",
+      "phone": "fsdfsd",
+      "website": "fdsfdsf",
+      "id": 4
+    },
+    {
+      "name": "sdafs",
+      "username": "sdafds",
+      "email": "anik@gmail.com",
+      "phone": "dsfsda",
+      "website": "fsdfdsdfsd",
+      "id": 5
+    },
+    {
+      "name": "fsafas",
+      "username": "dafsdfsf",
+      "email": "aman@gmail.com",
+      "phone": "fsafdsf",
+      "website": "fdsafsd",
+      "id": 6
+    },
+    {
+      "name": "sdfsf",
+      "username": "fsfsd",
+      "email": "fdfsdafs@gmail.com",
+      "phone": "fsadfsf",
+      "website": "fdsfsdf",
+      "id": 7
     }
   ]
 }

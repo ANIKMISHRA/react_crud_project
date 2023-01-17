@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 // components
 import { useContext2 } from "../Components/Common/CustomHook";
+import hocComponent from "../HocComponent/Hoc";
 
 // react icons
 import { GrView } from "react-icons/gr";
@@ -26,7 +27,7 @@ import {
  * Method to handle the whole user interface.
  * @returns node
  */
-const Home = () => {
+const Home = ({ loggedInUser }) => {
   // const
   const navigate = useNavigate();
   const { userDatas, setUserDatas } = useContext2();
@@ -54,7 +55,7 @@ const Home = () => {
         <h1>Home Page</h1>
         <table className="table border shadow mt-3">
           <thead className="thead-dark ">
-            <tr className="align-middle">
+            <tr className="align-middle text-light">
               <th scope="col">#</th>
               <th scope="col">Name</th>
               <th scope="col">User Name</th>
@@ -67,8 +68,13 @@ const Home = () => {
           <tbody>
             {userDatas &&
               userDatas?.map((user, index) => (
-                <tr className="align-middle text_font" key={index}>
-                  <th scope="row">{index + 1}</th>
+                <tr
+                  className="align-middle text_font border border-dark"
+                  key={index}
+                >
+                  <th scope="row" className="bg-light">
+                    {index + 1}
+                  </th>
                   <td className="bg-light">{user?.name}</td>
                   <td className="bg-light">{user?.username}</td>
                   <td className="bg-light">{user?.email}</td>
@@ -79,19 +85,23 @@ const Home = () => {
                     >
                       <GrView size="18px" />
                     </Link>
-                    <Link
-                      to={`${EDIT_USER_PATH}/${user?.id}`}
-                      className="btn btn-light text-primary"
-                    >
-                      <TbEdit size="18px" />
-                    </Link>
-                    <button
-                      type="button"
-                      onClick={() => deleteUser(user?.id)}
-                      className="btn btn-light text-danger"
-                    >
-                      <RiDeleteBin6Line size="18px" />
-                    </button>
+                    {loggedInUser && (
+                      <Link
+                        to={`${EDIT_USER_PATH}/${user?.id}`}
+                        className="btn btn-light text-primary"
+                      >
+                        <TbEdit size="18px" />
+                      </Link>
+                    )}
+                    {loggedInUser && (
+                      <button
+                        type="button"
+                        onClick={() => deleteUser(user?.id)}
+                        className="btn btn-light text-danger"
+                      >
+                        <RiDeleteBin6Line size="18px" />
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -101,4 +111,4 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export default hocComponent(Home, true);

@@ -7,7 +7,7 @@ import { SlArrowLeft } from "react-icons/sl";
 
 // component
 import { userDetails } from "../Common/userDetails";
-import { useContext1 } from "../Common/CustomHook";
+import { useContext2 } from "../Common/CustomHook";
 
 // service
 import { getSpecificUser } from "../../Services";
@@ -21,7 +21,7 @@ import { ERROR_MESSAGE } from "../../Services/Constants/Messages";
 const ViewUser = () => {
   // const
   const { id } = useParams();
-  const { userDatas } = useContext1();
+  const { userDatas } = useContext2();
 
   // states
   const [user, setUser] = useState({});
