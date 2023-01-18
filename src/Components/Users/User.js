@@ -44,7 +44,7 @@ const ViewUser = () => {
   }, []);
 
   return (
-    <div className="container py-4">
+    <div className="container py-4 border border-dark">
       <Link className="btn btn-dark" to="/">
         <SlArrowLeft size="25px" />
       </Link>

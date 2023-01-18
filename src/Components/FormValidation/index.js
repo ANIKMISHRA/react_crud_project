@@ -19,11 +19,19 @@ const validation = (users) => {
   } else if (!regex.test(users.email)) {
     errors.email = "This is not a valid email!";
   }
+
   if (!users.phone) {
     errors.phone = "Phone is required!";
   }
   if (!users.website) {
     errors.website = "Website is required!";
+  }
+  if (!users.password) {
+    errors.password = "password is required";
+  } else if (users.password.length < 6) {
+    errors.password = "Password must be longer than 6 characters";
+  } else if (users.password.length >= 20) {
+    errors.password = "Password must shorter than 20 characters";
   }
   return errors;
 };

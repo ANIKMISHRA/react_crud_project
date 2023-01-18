@@ -8,6 +8,7 @@ import { useDispatchCustom } from "../Common/CustomHook";
 
 // components
 import { registerUser, loginUser } from "../../Redux/action";
+import { validation } from "../FormValidation";
 
 // services
 import { HOME_PATH } from "../../Services/Constants/Path";
@@ -21,9 +22,23 @@ const Auth = () => {
   const users = useSelector((state) => state?.users);
 
   // states
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const [formErrors, setFormErrors] = useState({});
+
+  // destructuring from state
+  const { name, email, password } = user;
+
+  /**
+     * Methoid to handle the input change.
+     * @param {string} param0 , param1
+     */
+  const handleInputChange = ({ target: { value = '', name = '' } }) => {
+    setUser({ ...user, [name]: value.trimStart() });
+}
 
   /**
    * Method to handle the registration of user
@@ -31,9 +46,10 @@ const Auth = () => {
   const onRegister = () => {
     try {
       dispatch(registerUser({ name, email, password }));
-      popupMessages(REGISTER_SUCCESS_MESSAGE);
+      popupMessages(REGISTER_SUCCESS_MESSAGE); 
     } catch (error) {
       console.log(error);
+      setFormErrors(validation(user));
       popupMessages(ERROR_MESSAGE);
     }
   };
@@ -43,7 +59,7 @@ const Auth = () => {
    */
   const onLogin = () => {
     try {
-      const loggedInUser = users.find(
+      const loggedInUser = users?.find(
         (user) => user?.email === email && user?.password === password
       );
       if (loggedInUser) {
@@ -51,6 +67,7 @@ const Auth = () => {
         popupMessages(LOGIN_SUCCESS_MESSAGE)
         navigate(HOME_PATH);
       } else {
+        // setFormErrors(validation(user))
         popupMessages(LOGIN_ERROR_MESSAGE)
       }  
     } catch (error) {
@@ -85,15 +102,16 @@ const Auth = () => {
                           <h4 className="mb-4 pb-3 text-light">Log In</h4>
                           <div className="form-group">
                             <input
-                              type="email"
+                              type="text"
                               name="email"
                               className="form-style"
                               placeholder="Your Email"
                               value={email}
-                              onChange={(event) => setEmail(event.target.value)}
+                              onChange={handleInputChange}
                               id="logemail"
-                              autoComplete="off"
+                              autoComplete="on"
                             />
+                            <span className="text-danger">{formErrors?.email}</span>
                           </div>
                           <div className="form-group mt-2">
                             <input
@@ -102,12 +120,11 @@ const Auth = () => {
                               className="form-style"
                               placeholder="Your Password"
                               value={password}
-                              onChange={(event) =>
-                                setPassword(event.target.value)
-                              }
+                              onChange={handleInputChange}
                               id="logpass"
-                              autoComplete="off"
+                              autoComplete="on"
                             />
+                            <span className="text-danger">{formErrors?.password}</span>
                           </div>
                           <button
                             onClick={onLogin}
@@ -130,21 +147,23 @@ const Auth = () => {
                               placeholder="Your Full Name"
                               id="logname"
                               value={name}
-                              onChange={(event) => setName(event.target.value)}
-                              autoComplete="off"
+                              onChange={handleInputChange}
+                              autoComplete="on"
                             />
+                            <span className="text-danger">{formErrors?.name}</span>
                           </div>
                           <div className="form-group mt-2">
                             <input
-                              type="email"
+                              type="text"
                               name="email"
                               className="form-style"
                               placeholder="Your Email"
                               value={email}
-                              onChange={(event) => setEmail(event.target.value)}
+                              onChange={handleInputChange}
                               id="logemail"
-                              autoComplete="off"
+                              autoComplete="on"
                             />
+                            <span className="text-danger">{formErrors?.email}</span>
                           </div>
                           <div className="form-group mt-2">
                             <input
@@ -153,12 +172,11 @@ const Auth = () => {
                               className="form-style"
                               placeholder="Your Password"
                               value={password}
-                              onChange={(event) =>
-                                setPassword(event.target.value)
-                              }
+                              onChange={handleInputChange}
                               id="logpass"
-                              autoComplete="off"
+                              autoComplete="on"
                             />
+                            <span className="text-danger">{formErrors?.password}</span>
                           </div>
                           <button
                             className="btn mt-4 text-light"

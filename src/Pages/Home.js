@@ -81,14 +81,14 @@ const Home = ({ loggedInUser }) => {
                   <td className="bg-light text-center">
                     <Link
                       to={`${VIEW_USER_PATH}/${user?.id}`}
-                      className="btn btn-light"
+                      className="btn btn-light bg-light"
                     >
                       <GrView size="18px" />
                     </Link>
                     {loggedInUser && (
                       <Link
                         to={`${EDIT_USER_PATH}/${user?.id}`}
-                        className="btn btn-light text-primary"
+                        className="btn btn-light bg-light text-primary"
                       >
                         <TbEdit size="18px" />
                       </Link>
@@ -97,7 +97,7 @@ const Home = ({ loggedInUser }) => {
                       <button
                         type="button"
                         onClick={() => deleteUser(user?.id)}
-                        className="btn btn-light text-danger"
+                        className="btn btn-light bg-light text-danger"
                       >
                         <RiDeleteBin6Line size="18px" />
                       </button>
